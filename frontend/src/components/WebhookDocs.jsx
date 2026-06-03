@@ -3,11 +3,13 @@ import { FiCopy, FiCheck, FiTerminal, FiGlobe, FiCode, FiArrowLeft } from 'react
 
 const WebhookDocs = ({ onBack, backendUrl }) => {
   const [copiedIndex, setCopiedIndex] = useState(null);
+  const [apiKey, setApiKey] = useState('crm-wh-a7f3e9d2b1c84056f0e7a2d9b3c1f8e4');
 
   const webhookUrl = `${backendUrl}/api/leads`;
 
   const curlCode = `curl -X POST "${webhookUrl}" \\
   -H "Content-Type: application/json" \\
+  -H "X-CRM-API-KEY: ${apiKey}" \\
   -d '{
     "name": "Jane Doe",
     "email": "jane@example.com",
@@ -18,7 +20,8 @@ const WebhookDocs = ({ onBack, backendUrl }) => {
   const jsCode = `fetch("${webhookUrl}", {
   method: "POST",
   headers: {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
+    "X-CRM-API-KEY": "${apiKey}"
   },
   body: JSON.stringify({
     name: "John Doe",
@@ -29,7 +32,7 @@ const WebhookDocs = ({ onBack, backendUrl }) => {
 })
 .then(response => response.json())
 .then(data => console.log("Lead captured:", data))
-.catch(error => console.error("Error sending lead:", error));`;
+.catch(error => console.error("Error sending lead:", error));
 
   const copyToClipboard = (text, index) => {
     navigator.clipboard.writeText(text);
@@ -72,6 +75,30 @@ const WebhookDocs = ({ onBack, backendUrl }) => {
               style={{ whiteSpace: 'nowrap' }}
             >
               {copiedIndex === 0 ? <FiCheck /> : <FiCopy />} Copy URL
+            </button>
+          </div>
+        </div>
+
+        <div className="form-group" style={{ margin: '1.5rem 0' }}>
+          <label style={{ fontSize: '0.8rem', fontWeight: 'bold' }}>Your Webhook API Key</label>
+          <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
+            Paste your <code>WEBHOOK_API_KEY</code> from <code>backend/.env</code> — the code snippets below will update automatically.
+          </p>
+          <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+            <input
+              type="text"
+              value={apiKey}
+              onChange={(e) => setApiKey(e.target.value)}
+              placeholder="Paste your WEBHOOK_API_KEY here..."
+              className="input-field"
+              style={{ fontFamily: 'monospace', fontSize: '0.9rem' }}
+            />
+            <button
+              onClick={() => copyToClipboard(apiKey, 3)}
+              className="btn btn-secondary"
+              style={{ whiteSpace: 'nowrap' }}
+            >
+              {copiedIndex === 3 ? <FiCheck /> : <FiCopy />} Copy Key
             </button>
           </div>
         </div>
