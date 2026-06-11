@@ -66,13 +66,13 @@ const AddLeadModal = ({ onClose, onAdded, token, backendUrl }) => {
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Full Name *</label>
-            <input name="name" type="text" className="input-field" placeholder="e.g. Rahul Sharma"
+            <input name="name" type="text" className="input-field" placeholder="e.g. Mitul Aghara"
               value={form.name} onChange={handleChange} required />
           </div>
 
           <div className="form-group">
             <label>Email Address *</label>
-            <input name="email" type="email" className="input-field" placeholder="e.g. rahul@company.com"
+            <input name="email" type="email" className="input-field" placeholder="e.g. mitul@company.com"
               value={form.email} onChange={handleChange} required />
           </div>
 

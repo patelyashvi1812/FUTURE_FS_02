@@ -32,7 +32,7 @@ const WebhookDocs = ({ onBack, backendUrl }) => {
 })
 .then(response => response.json())
 .then(data => console.log("Lead captured:", data))
-.catch(error => console.error("Error sending lead:", error));
+.catch(error => console.error("Error sending lead:", error))`;
 
   const copyToClipboard = (text, index) => {
     navigator.clipboard.writeText(text);
