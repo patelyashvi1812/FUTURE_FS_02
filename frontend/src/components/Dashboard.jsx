@@ -282,16 +282,16 @@ const Dashboard = ({ token, onLogout, onShowDocs, backendUrl }) => {
               <tbody>
                 {leads.map(lead => (
                   <tr key={lead._id} onClick={() => setSelectedLead(lead)}>
-                    <td>
+                    <td data-label="Client Details">
                       <div className="lead-name-cell">{lead.name}</div>
                       <div className="lead-email-cell">{lead.email}</div>
                     </td>
-                    <td><span className="lead-source-cell">{lead.source}</span></td>
-                    <td>{renderStatusBadge(lead.status)}</td>
-                    <td style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+                    <td data-label="Source"><span className="lead-source-cell">{lead.source}</span></td>
+                    <td data-label="Status">{renderStatusBadge(lead.status)}</td>
+                    <td data-label="Received Date" style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
                       {new Date(lead.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}
                     </td>
-                    <td style={{ textAlign: 'right' }}>
+                    <td data-label="Actions" style={{ textAlign: 'right' }}>
                       <button className="btn btn-secondary btn-sm"
                         onClick={e => { e.stopPropagation(); setSelectedLead(lead); }}>
                         Manage
