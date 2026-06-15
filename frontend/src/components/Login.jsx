@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FiMail, FiLock, FiUser, FiArrowRight } from 'react-icons/fi';
+import { FiMail, FiLock, FiUser, FiArrowRight, FiEye, FiEyeOff } from 'react-icons/fi';
 
 const Login = ({ onLoginSuccess, backendUrl }) => {
   const [isSetup, setIsSetup] = useState(false);
@@ -9,6 +9,7 @@ const Login = ({ onLoginSuccess, backendUrl }) => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [setupMessage, setSetupMessage] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -105,16 +106,40 @@ const Login = ({ onLoginSuccess, backendUrl }) => {
           <div className="form-group" style={{ marginBottom: '2rem' }}>
             <label>Password</label>
             <div style={{ position: 'relative' }}>
-              <FiLock style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+              <FiLock style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)', zIndex: 1 }} />
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 className="input-field"
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                style={{ paddingLeft: '2.5rem' }}
+                style={{ paddingLeft: '2.5rem', paddingRight: '3rem' }}
                 required
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                style={{
+                  position: 'absolute',
+                  right: '0.85rem',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: showPassword ? 'var(--primary)' : 'var(--text-muted)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '0.25rem',
+                  borderRadius: '4px',
+                  transition: 'color 0.2s ease',
+                  fontSize: '1rem',
+                }}
+                title={showPassword ? 'Hide password' : 'Show password'}
+              >
+                {showPassword ? <FiEyeOff /> : <FiEye />}
+              </button>
             </div>
           </div>
 
