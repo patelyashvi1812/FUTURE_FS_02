@@ -5,7 +5,7 @@ import Dashboard from './components/Dashboard';
 import WebhookDocs from './components/WebhookDocs';
 
 // Set Backend Endpoint dynamically
-const BACKEND_URL = import.meta.env.VITE_API_URL || 'http://localhost:5050';
+const BACKEND_URL = import.meta.env.VITE_API_URL || 'https://lead-crm-backend-eta.vercel.app';
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem('crm_token'));
