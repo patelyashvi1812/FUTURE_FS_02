@@ -56,7 +56,7 @@ const Login = ({ onLoginSuccess, backendUrl }) => {
       <div className="glass-card login-card fade-in">
         <div className="login-header">
           <div className="nav-brand" style={{ justifyContent: 'center', marginBottom: '0.5rem', fontSize: '2rem' }}>
-            CRM Dashboard
+            LeadFlow <span className="text-brand-green" style={{ marginLeft: '0.5rem' }}>CRM</span>
           </div>
           <p>{isSetup ? 'Create a new account' : 'Sign in to access lead management'}</p>
         </div>

@@ -200,7 +200,7 @@ const Dashboard = ({ token, onLogout, onShowDocs, backendUrl }) => {
           <div className="metric-info"><h3>New</h3><p>{newLeads}</p></div>
         </div>
         <div className="glass-card metric-card">
-          <div className="metric-icon" style={{ background: 'rgba(14,165,233,0.1)', color: 'var(--info)' }}><FiTrendingUp /></div>
+          <div className="metric-icon sky-blue"><FiTrendingUp /></div>
           <div className="metric-info"><h3>Contacted</h3><p>{contactedLeads}</p></div>
         </div>
         <div className="glass-card metric-card">

@@ -43,7 +43,7 @@ function App() {
       <header className="navbar">
         <div className="nav-brand" onClick={() => setView('dashboard')}>
           <FiDatabase style={{ marginRight: '0.2rem' }} />
-          <span>LeadFlow CRM</span>
+          <span>LeadFlow <span className="text-brand-green">CRM</span></span>
         </div>
 
         {token && (
