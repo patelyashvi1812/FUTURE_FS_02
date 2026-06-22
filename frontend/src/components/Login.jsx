@@ -63,7 +63,7 @@ const Login = ({ onLoginSuccess, backendUrl }) => {
 
         {error && <div className="login-error">{error}</div>}
         {setupMessage && (
-          <div className="login-error" style={{ background: 'rgba(16, 185, 129, 0.1)', borderColor: 'rgba(16, 185, 129, 0.3)', color: 'var(--success)' }}>
+          <div className="login-error" style={{ background: '#f5f5f5', borderColor: '#cccccc', color: '#0a0a0a' }}>
             {setupMessage}
           </div>
         )}

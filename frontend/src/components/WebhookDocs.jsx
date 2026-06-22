@@ -41,7 +41,7 @@ const WebhookDocs = ({ onBack, backendUrl }) => {
   };
 
   return (
-    <div className="fade-in">
+    <div className="fade-in" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
       <div style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
         <button onClick={onBack} className="btn btn-secondary" style={{ padding: '0.5rem 1rem' }}>
           <FiArrowLeft /> Back to Leads
@@ -67,7 +67,7 @@ const WebhookDocs = ({ onBack, backendUrl }) => {
               readOnly
               value={webhookUrl}
               className="input-field"
-              style={{ background: 'rgba(0,0,0,0.3)', fontFamily: 'monospace', fontSize: '0.9rem' }}
+              style={{ background: '#f5f5f5', fontFamily: 'monospace', fontSize: '0.9rem', border: '1px solid #e0e0e0' }}
             />
             <button
               onClick={() => copyToClipboard(webhookUrl, 0)}
@@ -108,10 +108,10 @@ const WebhookDocs = ({ onBack, backendUrl }) => {
           <table className="crm-table" style={{ border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)' }}>
             <thead>
               <tr>
-                <th style={{ background: 'rgba(0,0,0,0.2)' }}>Field</th>
-                <th style={{ background: 'rgba(0,0,0,0.2)' }}>Type</th>
-                <th style={{ background: 'rgba(0,0,0,0.2)' }}>Requirement</th>
-                <th style={{ background: 'rgba(0,0,0,0.2)' }}>Description</th>
+                <th style={{ background: '#f0f0f0' }}>Field</th>
+                <th style={{ background: '#f0f0f0' }}>Type</th>
+                <th style={{ background: '#f0f0f0' }}>Requirement</th>
+                <th style={{ background: '#f0f0f0' }}>Description</th>
               </tr>
             </thead>
             <tbody>
@@ -146,7 +146,7 @@ const WebhookDocs = ({ onBack, backendUrl }) => {
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', flexWrap: 'wrap' }} className="docs-grid-responsive">
         <div className="glass-card">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', fontWeight: 'bold', color: 'var(--info)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', fontWeight: 'bold', color: '#444444' }}>
             <FiTerminal /> <span>cURL (Terminal Test)</span>
           </div>
           <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.75rem' }}>

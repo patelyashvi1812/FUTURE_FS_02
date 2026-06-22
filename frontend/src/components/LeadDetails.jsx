@@ -135,7 +135,7 @@ const LeadDetails = ({ lead, onClose, onUpdateLead, onDeleteLead, token, backend
 
         <div className="drawer-body">
           {/* Metadata Card */}
-          <div className="glass-card" style={{ padding: '1rem', background: 'rgba(255,255,255,0.01)', marginBottom: '1.5rem' }}>
+          <div className="glass-card" style={{ padding: '1rem', background: '#f9f9f9', marginBottom: '1.5rem', border: '1px solid #e0e0e0' }}>
             <div className="lead-meta-info">
               <div className="meta-item">
                 <label>Name</label>
@@ -143,11 +143,11 @@ const LeadDetails = ({ lead, onClose, onUpdateLead, onDeleteLead, token, backend
               </div>
               <div className="meta-item">
                 <label>Email</label>
-                <p><a href={`mailto:${lead.email}`} style={{ color: 'var(--primary)', textDecoration: 'none' }}>{lead.email}</a></p>
+                <p><a href={`mailto:${lead.email}`} style={{ color: '#0a0a0a', textDecoration: 'underline', textUnderlineOffset: '3px' }}>{lead.email}</a></p>
               </div>
               <div className="meta-item" style={{ marginTop: '0.75rem' }}>
                 <label>Source</label>
-                <p style={{ color: 'var(--info)' }}>{lead.source}</p>
+                <p style={{ color: '#444444' }}>{lead.source}</p>
               </div>
               <div className="meta-item" style={{ marginTop: '0.75rem' }}>
                 <label>Received Date</label>
@@ -168,14 +168,14 @@ const LeadDetails = ({ lead, onClose, onUpdateLead, onDeleteLead, token, backend
               </button>
               <button
                 className={`btn btn-sm ${lead.status === 'Contacted' ? 'btn-primary' : 'btn-secondary'}`}
-                style={lead.status === 'Contacted' ? { background: 'var(--warning)', borderColor: 'var(--warning)', color: 'white' } : {}}
+                style={lead.status === 'Contacted' ? { background: '#555555', borderColor: '#555555', color: 'white' } : {}}
                 onClick={() => handleStatusChange('Contacted')}
               >
                 Contacted
               </button>
               <button
                 className={`btn btn-sm ${lead.status === 'Converted' ? 'btn-primary' : 'btn-secondary'}`}
-                style={lead.status === 'Converted' ? { background: 'var(--success)', borderColor: 'var(--success)', color: 'white' } : {}}
+                style={lead.status === 'Converted' ? { background: '#0a0a0a', borderColor: '#0a0a0a', color: 'white' } : {}}
                 onClick={() => handleStatusChange('Converted')}
               >
                 Converted
@@ -219,7 +219,7 @@ const LeadDetails = ({ lead, onClose, onUpdateLead, onDeleteLead, token, backend
           </div>
 
           {/* Schedule Followup Form */}
-          <form onSubmit={handleAddFollowUp} className="add-item-form glass-card" style={{ padding: '1rem', background: 'rgba(0,0,0,0.2)', marginBottom: '1.5rem' }}>
+          <form onSubmit={handleAddFollowUp} className="add-item-form glass-card" style={{ padding: '1rem', background: '#f5f5f5', border: '1px solid #e0e0e0', marginBottom: '1.5rem' }}>
             <span style={{ fontSize: '0.85rem', fontWeight: 600, display: 'block', marginBottom: '0.75rem', color: 'var(--text-secondary)' }}>
               Schedule New Follow-up
             </span>

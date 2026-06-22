@@ -188,7 +188,7 @@ const Dashboard = ({ token, onLogout, onShowDocs, backendUrl }) => {
   };
 
   return (
-    <div className="fade-in">
+    <div className="fade-in" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
       {/* Metrics Row */}
       <div className="metrics-grid">
         <div className="glass-card metric-card">
